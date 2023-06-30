@@ -1,83 +1,83 @@
-import React from "react";
-import type { PageProps } from "gatsby";
-import { graphql } from "gatsby";
-import { Seo, Utterances } from "~/components/Common";
-import { AppLayout } from "~/components/Layout";
-import "../styles/templates/post.scss";
+import React from 'react'
+import type { PageProps } from 'gatsby'
+import { graphql } from 'gatsby'
+import { Seo, Utterances } from '~/components/Common'
+import { AppLayout } from '~/components/Layout'
+import '../styles/templates/post.scss'
 
 const Post = ({ data }: PageProps<QueryResult>) => {
   const {
     html,
     fields,
     frontmatter: { date, description, thumbnail, title }
-  } = data.markdownRemark;
-  
+  } = data.markdownRemark
+
   const fallbackThumbnail =
-    thumbnail?.childImageSharp.gatsbyImageData.images.fallback;
+    thumbnail?.childImageSharp.gatsbyImageData.images.fallback
 
   return (
     <AppLayout>
       <Seo
         title={title}
         description={description}
-        url={`https://blog.chanhyuk.com${fields.slug}`}
+        url={`https://blog.danwoo.com${fields.slug}`}
         thumbnail={
           thumbnail
-            ? `https://blog.chanhyuk.com${thumbnail.publicURL}`
+            ? `https://blog.danwoo.com${thumbnail.publicURL}`
             : undefined
         }
       />
       <article
-        className="blog-post-wrapper"
+        className='blog-post-wrapper'
         itemScope
-        itemType="http://schema.org/Article"
+        itemType='http://schema.org/Article'
       >
         <header>
-          <h1 className="title" itemProp="headline">
+          <h1 className='title' itemProp='headline'>
             {title}
           </h1>
-          <p className="published-at">{date}</p>
+          <p className='published-at'>{date}</p>
 
           {thumbnail && (
-            <img className="thumbnail" alt="" {...fallbackThumbnail} />
+            <img className='thumbnail' alt='' {...fallbackThumbnail} />
           )}
         </header>
         <section
           dangerouslySetInnerHTML={{ __html: html }}
-          itemProp="articleBody"
+          itemProp='articleBody'
         />
         <Utterances />
       </article>
     </AppLayout>
-  );
-};
+  )
+}
 
 interface QueryResult {
   markdownRemark: {
-    html: string;
+    html: string
     fields: {
-      slug: string;
-    };
+      slug: string
+    }
     frontmatter: {
-      title: string;
-      date: string;
-      description: string;
+      title: string
+      date: string
+      description: string
       thumbnail: {
-        publicURL: string;
+        publicURL: string
         childImageSharp: {
           gatsbyImageData: {
             images: {
               fallback: {
-                src: string;
-                srcSet: string;
-                sizes: string;
-              };
-            };
-          };
-        };
-      } | null;
-    };
-  };
+                src: string
+                srcSet: string
+                sizes: string
+              }
+            }
+          }
+        }
+      } | null
+    }
+  }
 }
 
 export const pageQuery = graphql`
@@ -100,6 +100,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 
-export default Post;
+export default Post

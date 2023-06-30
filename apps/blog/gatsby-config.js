@@ -5,10 +5,10 @@ const siteMetadata = {
     summary: `웹 프론트엔드 개발자입니다.`
   },
   description: `기록하고 공유합니다`,
-  siteUrl: `https://blog.chanhyuk.com`,
+  siteUrl: `https://blog.danwoo.com`,
   icon: `content/assets/favicon.png`,
-  thumbnail: `https://blog.chanhyuk.com/og.png`
-};
+  thumbnail: `https://blog.danwoo.com/og.png`
+}
 
 module.exports = {
   siteMetadata,
@@ -78,9 +78,9 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }]
-                });
-              });
+                  custom_elements: [{ 'content:encoded': node.html }]
+                })
+              })
             },
             query: `
               {
@@ -101,8 +101,8 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed"
+            output: '/rss.xml',
+            title: 'Gatsby Starter Blog RSS Feed'
           }
         ]
       }
@@ -121,14 +121,14 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-plugin-typescript",
+      resolve: 'gatsby-plugin-typescript',
       options: {
         isTSX: true,
         allExtensions: true
       }
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
           include: /\.inline\.svg$/
@@ -136,4 +136,4 @@ module.exports = {
       }
     }
   ]
-};
+}

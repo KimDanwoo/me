@@ -1056,7 +1056,7 @@
   resolved "https://registry.npmjs.org/@builder.io/partytown/-/partytown-0.5.4.tgz"
   integrity sha512-qnikpQgi30AS01aFlNQV6l8/qdZIcP76mp90ti+u4rucXHsn4afSKivQXApqxvrQG9+Ibv45STyvHizvxef/7A==
 
-"@chanhyuk/ts-config@file:E:\\me\\packages\\ts-config":
+"@danwoo/ts-config@file:E:\\me\\packages\\ts-config":
   version "0.0.1"
   resolved "file:packages/ts-config"
 
